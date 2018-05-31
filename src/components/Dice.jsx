@@ -37,13 +37,14 @@ class Dice extends Component {
 
 
   render(){
+    const p = this.props;
 
     const imageSource = this.getImageSource();
 
-    const classList = this.props.held ? "dice held" : "dice";
+    const classList = p.held ? "dice held" : "dice";
 
     return(
-      <div className={classList} onClick={this.props.handleClick.bind(this)}>
+      <div className={classList} onClick={p.handleClick.bind(this)}>
         <img src={imageSource} alt="dice"/>
       </div>
     );
