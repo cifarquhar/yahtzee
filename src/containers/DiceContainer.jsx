@@ -12,6 +12,8 @@ class DiceContainer extends Component {
       diceValue: null
     };
 
+    this.rollsRemaining = 3;
+
     this.die1 = {value: null, held: false};
     this.die2 = {value: null, held: false};
     this.die3 = {value: null, held: false};
@@ -29,26 +31,31 @@ class DiceContainer extends Component {
 
 
   rollDice(){
-    this.dice.forEach(die => {
-      if (!die.held){
-        die.value = this.getDieValue();
-      }
-    });
 
-    let totalValue = 0;
+    if (this.rollsRemaining){
+      this.dice.forEach(die => {
+        if (!die.held){
+          die.value = this.getDieValue();
+        }
+      });
 
-    this.dice.forEach(die => {
-      totalValue += die.value
-    })
+      let totalValue = 0;
 
-    this.setState({diceValue: totalValue});
+      this.dice.forEach(die => {
+       totalValue += die.value
+      })
 
+      this.rollsRemaining -= 1;
+      this.setState({diceValue: totalValue});
+    }
   }
 
 
   flipHeldState(die){
-    die.held = !die.held;
-    this.forceUpdate();
+    if (this.rollsRemaining < 3){
+      die.held = !die.held;
+      this.forceUpdate();
+    }
   }
 
 
@@ -70,6 +77,7 @@ class DiceContainer extends Component {
         <div className="dice-container">
           {diceToRender}
         </div>
+        <p>Rolls remaining: {this.rollsRemaining}</p>
         <Button onClick={this.rollDice.bind(this)} block>Roll</Button>
       </div>
     );
