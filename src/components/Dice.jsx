@@ -7,6 +7,8 @@ import dice4 from "../resources/dice4.png";
 import dice5 from "../resources/dice5.png";
 import dice6 from "../resources/dice6.png";
 
+import "../styles/components.css"
+
 class Dice extends Component {
 
   constructor(props){
@@ -39,7 +41,7 @@ class Dice extends Component {
     const imageSource = this.getImageSource();
 
     return(
-      <div>
+      <div className="dice">
         <img src={imageSource} alt="dice"/>
       </div>
     );
