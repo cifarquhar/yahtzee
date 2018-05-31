@@ -32,7 +32,6 @@ class DiceContainer extends Component {
     this.dice.forEach(die => {
       if (!die.held){
         die.value = this.getDieValue();
-        console.log(die.value);
       }
     });
 
