@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Dice from "../components/Dice";
 
 class DiceContainer extends Component {
 
@@ -6,7 +7,11 @@ class DiceContainer extends Component {
 
     return (
       <div>
-        <p>Dice components go in here</p>
+        <Dice/>
+        <Dice/>
+        <Dice/>
+        <Dice/>
+        <Dice/>
       </div>
     );
 
