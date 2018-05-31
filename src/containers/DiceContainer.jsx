@@ -12,10 +12,10 @@ class DiceContainer extends Component {
       diceValue: null
     };
 
-    this.die1 = {value: 6, held: false};
-    this.die2 = {value: 3, held: false};
-    this.die3 = {value: 2, held: false};
-    this.die4 = {value: 5, held: false};
+    this.die1 = {value: null, held: false};
+    this.die2 = {value: null, held: false};
+    this.die3 = {value: null, held: false};
+    this.die4 = {value: null, held: false};
     this.die5 = {value: null, held: false};
 
     this.dice = [this.die1, this.die2, this.die3, this.die4, this.die5];
@@ -47,6 +47,11 @@ class DiceContainer extends Component {
   }
 
 
+  flipHeldState(die){
+    die.held = !die.held;
+  }
+
+
   render() {
 
     const diceToRender = this.dice.map((array,index) => {
@@ -55,6 +60,7 @@ class DiceContainer extends Component {
           key={index}
           value={this.dice[index].value}
           held={this.dice[index].held}
+          handleClick={() => this.flipHeldState(this.dice[index])}
         />
       )
     })
