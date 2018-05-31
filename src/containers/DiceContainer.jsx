@@ -48,6 +48,7 @@ class DiceContainer extends Component {
 
   flipHeldState(die){
     die.held = !die.held;
+    this.forceUpdate();
   }
 
 
