@@ -1,3 +1,12 @@
+@import "./variables.scss";
+
 .dice{
   margin: 30px;
+  padding: 5px;
+
+  &:hover{
+    margin: 25px;
+    border: 5px solid $c-dice-hover;
+  }
+
 }
