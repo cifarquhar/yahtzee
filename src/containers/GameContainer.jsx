@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import DiceContainer from "./DiceContainer";
+import CardContainer from "./CardContainer";
 
 class GameContainer extends Component {
 
@@ -6,7 +8,8 @@ class GameContainer extends Component {
 
     return (
       <div>
-        <p>Content goes here</p>
+        <DiceContainer/>
+        <CardContainer/>
       </div>
     );
 
