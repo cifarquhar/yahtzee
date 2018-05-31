@@ -9,10 +9,9 @@ class DiceContainer extends Component {
     super(props);
 
     this.state = {
-      diceValue: null
+      diceValue: 0,
+      rollsRemaining: 3
     };
-
-    this.rollsRemaining = 3;
 
     this.die1 = {value: null, held: false};
     this.die2 = {value: null, held: false};
@@ -32,7 +31,7 @@ class DiceContainer extends Component {
 
   rollDice(){
 
-    if (this.rollsRemaining){
+    if (this.state.rollsRemaining){
       this.dice.forEach(die => {
         if (!die.held){
           die.value = this.getDieValue();
@@ -45,17 +44,25 @@ class DiceContainer extends Component {
        totalValue += die.value
       })
 
-      this.rollsRemaining -= 1;
-      this.setState({diceValue: totalValue});
+      this.setState({diceValue: totalValue, rollsRemaining: this.state.rollsRemaining - 1});
     }
   }
 
 
   flipHeldState(die){
-    if (this.rollsRemaining < 3){
+    if (this.state.rollsRemaining < 3){
       die.held = !die.held;
       this.forceUpdate();
     }
+  }
+
+
+  advanceTurn(){
+    this.dice.forEach(die => {
+      die.value = null;
+      die.held = false;
+    });
+    this.setState({diceValue: 0, rollsRemaining: 3});
   }
 
 
@@ -77,8 +84,9 @@ class DiceContainer extends Component {
         <div className="dice-container">
           {diceToRender}
         </div>
-        <p>Rolls remaining: {this.rollsRemaining}</p>
+        <p>Rolls remaining: {this.state.rollsRemaining}</p>
         <Button onClick={this.rollDice.bind(this)} block>Roll</Button>
+        <Button onClick={this.advanceTurn.bind(this)} block>Next Turn</Button>
       </div>
     );
 
