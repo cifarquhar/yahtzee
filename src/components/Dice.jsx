@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 
-import dice1 from "./resources/dice1.png";
-import dice2 from "./resources/dice2.png";
-import dice3 from "./resources/dice3.png";
-import dice4 from "./resources/dice4.png";
-import dice5 from "./resources/dice5.png";
-import dice6 from "./resources/dice6.png";
+import dice1 from "../resources/dice1.png";
+import dice2 from "../resources/dice2.png";
+import dice3 from "../resources/dice3.png";
+import dice4 from "../resources/dice4.png";
+import dice5 from "../resources/dice5.png";
+import dice6 from "../resources/dice6.png";
 
 class Dice extends Component {
 
