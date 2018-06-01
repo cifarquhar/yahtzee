@@ -4,11 +4,15 @@ import "../styles/containers.css";
 
 class CardContainer extends Component {
 
+  constructor(props){
+    super(props);
+  }
+
   render() {
 
     return (
       <div className="card-container">
-        <Scorecard/>
+        <Scorecard scoreValue={this.props.scoreValue}/>
       </div>
     );
 

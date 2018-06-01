@@ -10,6 +10,8 @@ class Scorecard extends Component {
 
 
   render(){
+    const score = this.props.scoreValue;
+
     return(
       <div>
         <table>
@@ -18,35 +20,35 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Aces</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Twos</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Threes</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Fours</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Fives</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
-            <td>Sixes</td>
-            <td>X</td>
+            <td>Si{score}es</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <th>Upper Section</th>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <th>Upper Section Total</th>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
           </tr>
@@ -55,43 +57,43 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Three-of-a-kind</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Four-of-a-kind</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Full House</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Low Straight</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>High Straight</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Yahtzee</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <td>Chance</td>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <th>Yahtzee Bonus</th>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <th>Lower Section Total</th>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
           <tr>
             <th>Grand Total</th>
-            <td>X</td>
+            <td>{score}</td>
           </tr>
         </table>
       </div>
