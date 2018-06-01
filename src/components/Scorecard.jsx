@@ -23,27 +23,27 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Aces</td>
-            <td>{scoring.aces}</td>
+            <td>{scoring.aces ? scoring.aces : "X"}</td>
           </tr>
           <tr>
             <td>Twos</td>
-            <td>{scoring.twos}</td>
+            <td>{scoring.twos ? scoring.twos : "X"}</td>
           </tr>
           <tr>
             <td>Threes</td>
-            <td>{scoring.threes}</td>
+            <td>{scoring.threes ? scoring.threes : "X"}</td>
           </tr>
           <tr>
             <td>Fours</td>
-            <td>{scoring.fours}</td>
+            <td>{scoring.fours ? scoring.fours : "X"}</td>
           </tr>
           <tr>
             <td>Fives</td>
-            <td>{scoring.fives}</td>
+            <td>{scoring.fives ? scoring.fives : "X"}</td>
           </tr>
           <tr>
             <td>Sixes</td>
-            <td>{scoring.sixes}</td>
+            <td>{scoring.sixes ? scoring.sixes : "X"}</td>
           </tr>
           <tr>
             <th>Bonus</th>
