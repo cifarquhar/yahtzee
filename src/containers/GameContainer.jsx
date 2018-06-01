@@ -39,11 +39,9 @@ class GameContainer extends Component {
 
   sumAllDice(dice){
     let totalValue = 0;
-
     dice.forEach(die => {
       totalValue += die.value
     });
-
     return totalValue;
   }
 
