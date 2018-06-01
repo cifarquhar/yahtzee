@@ -47,6 +47,13 @@ class GameContainer extends Component {
     return totalValue;
   }
 
+  mapDieValues(dice){
+    values = dice.map(die => {
+      return die.value;
+    });
+    return values;
+  }
+
   checkValueOccurence(dice, valueToCheck, requiredCount){
     let occurences = 0;
     dice.forEach(die => {
