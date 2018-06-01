@@ -60,7 +60,7 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Three-of-a-kind</td>
-            <td>{score}</td>
+              <td>{scoring.threeKind ? scoring.threeKind : "X"}</td>
           </tr>
           <tr>
             <td>Four-of-a-kind</td>

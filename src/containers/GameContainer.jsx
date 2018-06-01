@@ -25,6 +25,8 @@ class GameContainer extends Component {
         chance: null,
       }
     }
+
+    this.dieValues = [1,2,3,4,5,6];
   }
 
   sumGivenValues(dice, valueToCheck){
@@ -55,8 +57,23 @@ class GameContainer extends Component {
     return (occurences >= requiredCount);
   }
 
+  checkThreeKind(dice){
+    let threeFound = false
+    this.dieValues.forEach(value => {
+      if (this.checkValueOccurence(dice, value, 3)){
+          threeFound = true;
+      }
+    })
+    return threeFound;
+  }
+
 
   updateScoreValue(newScore, dice){
+
+    const threeFound = this.checkThreeKind(dice);
+
+    const diceTotal = this.sumAllDice(dice);
+
     this.setState({holderValue: newScore, 
     scoring: {
       aces: this.sumGivenValues(dice, 1),
@@ -65,7 +82,8 @@ class GameContainer extends Component {
       fours: this.sumGivenValues(dice, 4),
       fives: this.sumGivenValues(dice, 5),
       sixes: this.sumGivenValues(dice, 6),
-      chance: this.sumAllDice(dice)  
+      threeKind: threeFound ? diceTotal : 0,
+      chance: diceTotal  
     }});
 
   }
