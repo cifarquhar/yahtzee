@@ -45,6 +45,16 @@ class GameContainer extends Component {
     return totalValue;
   }
 
+  checkValueOccurence(dice, valueToCheck, requiredCount){
+    let occurences = 0;
+    dice.forEach(die => {
+      if (die.value === valueToCheck){
+        occurences += 1;
+      };
+    });
+    return (occurences >= requiredCount);
+  }
+
 
   updateScoreValue(newScore, dice){
     this.setState({holderValue: newScore, 
