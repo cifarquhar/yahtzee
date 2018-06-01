@@ -84,7 +84,7 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Chance</td>
-            <td>{score}</td>
+              <td>{scoring.chance ? scoring.chance : "X"}</td>
           </tr>
           <tr>
             <th>Yahtzee Bonus</th>

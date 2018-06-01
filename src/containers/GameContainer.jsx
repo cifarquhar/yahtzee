@@ -37,6 +37,16 @@ class GameContainer extends Component {
     return runningTotal;
   }
 
+  sumAllDice(dice){
+    let totalValue = 0;
+
+    dice.forEach(die => {
+      totalValue += die.value
+    });
+
+    return totalValue;
+  }
+
 
   updateScoreValue(newScore, dice){
     this.setState({holderValue: newScore, 
@@ -46,7 +56,8 @@ class GameContainer extends Component {
       threes: this.sumGivenValues(dice, 3),
       fours: this.sumGivenValues(dice, 4),
       fives: this.sumGivenValues(dice, 5),
-      sixes: this.sumGivenValues(dice, 6)  
+      sixes: this.sumGivenValues(dice, 6),
+      chance: this.sumAllDice(dice)  
     }});
 
   }
