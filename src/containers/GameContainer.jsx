@@ -57,42 +57,48 @@ class GameContainer extends Component {
     return (occurences >= requiredCount);
   }
 
-  checkThreeKind(dice){
-    let threeFound = false
-    this.dieValues.forEach(value => {
-      if (this.checkValueOccurence(dice, value, 3)){
-          threeFound = true;
-      }
-    })
-    return threeFound;
-  }
+  checkNofKind(dice){
+    let dieValues = [1,2,3,4,5,6];
 
-  checkFourKind(dice) {
-    let fourFound = false
-    this.dieValues.forEach(value => {
-      if (this.checkValueOccurence(dice, value, 4)) {
-        fourFound = true;
-      }
-    })
-    return fourFound;
-  }
+    let checks = {
+      two: false,
+      three: false,
+      four: false,
+      five: false
+    };
 
-  checkYahtzee(dice) {
-    let yahtzeeFound = false
-    this.dieValues.forEach(value => {
+    dieValues.forEach(value => {
       if (this.checkValueOccurence(dice, value, 5)) {
-        yahtzeeFound = true;
+        checks.five = true;
+      };
+    });
+
+    dieValues.forEach(value => {
+      if (this.checkValueOccurence(dice, value, 4)) {
+        checks.four = true;
+      };
+    });
+
+    dieValues.forEach((value, index) => {
+      if (this.checkValueOccurence(dice, value, 3)) {
+        checks.three = true;
+        dieValues.splice(index,1);
       }
     })
-    return yahtzeeFound;
+
+    dieValues.forEach(value => {
+      if (this.checkValueOccurence(dice, value, 2)) {
+        checks.two = true;
+      };
+    });
+
+    return checks;
   }
 
 
   updateScoreValue(newScore, dice){
 
-    const threeFound = this.checkThreeKind(dice);
-    const fourFound = this.checkFourKind(dice);
-    const yahtzeeFound = this.checkYahtzee(dice);
+    const checks = this.checkNofKind(dice);
 
     const diceTotal = this.sumAllDice(dice);
 
@@ -104,9 +110,10 @@ class GameContainer extends Component {
       fours: this.sumGivenValues(dice, 4),
       fives: this.sumGivenValues(dice, 5),
       sixes: this.sumGivenValues(dice, 6),
-      threeKind: threeFound ? diceTotal : 0,
-      fourKind: fourFound ? diceTotal : 0,
-      yahtzee: yahtzeeFound ? 50 : 0,
+      threeKind: checks.three ? diceTotal : 0,
+      fourKind: checks.four ? diceTotal : 0,
+      house: checks.two && checks.three ? 25 : 0,
+      yahtzee: checks.five ? 50 : 0,
       chance: diceTotal  
     }});
 

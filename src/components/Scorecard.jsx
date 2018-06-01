@@ -68,7 +68,7 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Full House</td>
-            <td>{score}</td>
+            <td>{scoring.house ? scoring.house : "X"}</td>
           </tr>
           <tr>
             <td>Low Straight</td>
