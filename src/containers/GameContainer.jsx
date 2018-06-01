@@ -27,7 +27,7 @@ class GameContainer extends Component {
     }
   }
 
-  updateScoreValue(newScore){
+  updateScoreValue(newScore, dice){
     this.setState({holderValue: newScore});
   }
 

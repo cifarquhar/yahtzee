@@ -43,7 +43,7 @@ class DiceContainer extends Component {
        totalValue += die.value
       })
 
-      this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(totalValue));
+      this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(totalValue, this.dice));
     }
   }
 
