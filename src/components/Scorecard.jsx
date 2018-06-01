@@ -47,11 +47,11 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <th>Bonus</th>
-            <td>{score}</td>
+            <td>TODO</td>
           </tr>
           <tr>
             <th>Upper Section Total</th>
-            <td>{score}</td>
+            <td>TODO</td>
           </tr>
           <tr>
           </tr>
@@ -88,15 +88,15 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <th>Yahtzee Bonus</th>
-            <td>{score}</td>
+            <td>TODO</td>
           </tr>
           <tr>
             <th>Lower Section Total</th>
-            <td>{score}</td>
+            <td>TODO</td>
           </tr>
           <tr>
             <th>Grand Total</th>
-            <td>{score}</td>
+            <td>TODO</td>
           </tr>
           </tbody>
         </table>
