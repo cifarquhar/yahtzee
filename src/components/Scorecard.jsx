@@ -11,39 +11,42 @@ class Scorecard extends Component {
 
   render(){
     const score = this.props.scoreValue;
+    const scoring = this.props.scoring;
 
     return(
       <div>
         <table>
+          <thead></thead>
+          <tbody>
           <tr>
             <th>Upper Section</th>
           </tr>
           <tr>
             <td>Aces</td>
-            <td>{score}</td>
+            <td>{scoring.aces}</td>
           </tr>
           <tr>
             <td>Twos</td>
-            <td>{score}</td>
+            <td>{scoring.twos}</td>
           </tr>
           <tr>
             <td>Threes</td>
-            <td>{score}</td>
+            <td>{scoring.threes}</td>
           </tr>
           <tr>
             <td>Fours</td>
-            <td>{score}</td>
+            <td>{scoring.fours}</td>
           </tr>
           <tr>
             <td>Fives</td>
-            <td>{score}</td>
+            <td>{scoring.fives}</td>
           </tr>
           <tr>
-            <td>Si{score}es</td>
-            <td>{score}</td>
+            <td>Sixes</td>
+            <td>{scoring.sixes}</td>
           </tr>
           <tr>
-            <th>Upper Section</th>
+            <th>Bonus</th>
             <td>{score}</td>
           </tr>
           <tr>
@@ -95,6 +98,7 @@ class Scorecard extends Component {
             <th>Grand Total</th>
             <td>{score}</td>
           </tr>
+          </tbody>
         </table>
       </div>
     )

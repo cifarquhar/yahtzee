@@ -39,7 +39,15 @@ class GameContainer extends Component {
 
 
   updateScoreValue(newScore, dice){
-    this.setState({holderValue: newScore});
+    this.setState({holderValue: newScore, 
+    scoring: {
+      aces: this.sumGivenValues(dice, 1),
+      twos: this.sumGivenValues(dice, 2),
+      threes: this.sumGivenValues(dice, 3),
+      fours: this.sumGivenValues(dice, 4),
+      fives: this.sumGivenValues(dice, 5),
+      sixes: this.sumGivenValues(dice, 6)  
+    }});
 
   }
 
@@ -49,7 +57,7 @@ class GameContainer extends Component {
     return (
       <div>
         <DiceContainer handleUpdate={this.updateScoreValue.bind(this)}/>
-        <CardContainer scoreValue={this.state.holderValue}/>
+        <CardContainer scoreValue={this.state.holderValue} scoring={this.state.scoring}/>
       </div>
     );
 
