@@ -67,10 +67,32 @@ class GameContainer extends Component {
     return threeFound;
   }
 
+  checkFourKind(dice) {
+    let fourFound = false
+    this.dieValues.forEach(value => {
+      if (this.checkValueOccurence(dice, value, 4)) {
+        fourFound = true;
+      }
+    })
+    return fourFound;
+  }
+
+  checkYahtzee(dice) {
+    let yahtzeeFound = false
+    this.dieValues.forEach(value => {
+      if (this.checkValueOccurence(dice, value, 5)) {
+        yahtzeeFound = true;
+      }
+    })
+    return yahtzeeFound;
+  }
+
 
   updateScoreValue(newScore, dice){
 
     const threeFound = this.checkThreeKind(dice);
+    const fourFound = this.checkFourKind(dice);
+    const yahtzeeFound = this.checkYahtzee(dice);
 
     const diceTotal = this.sumAllDice(dice);
 
@@ -83,6 +105,8 @@ class GameContainer extends Component {
       fives: this.sumGivenValues(dice, 5),
       sixes: this.sumGivenValues(dice, 6),
       threeKind: threeFound ? diceTotal : 0,
+      fourKind: fourFound ? diceTotal : 0,
+      yahtzee: yahtzeeFound ? 50 : 0,
       chance: diceTotal  
     }});
 

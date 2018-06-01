@@ -60,11 +60,11 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Three-of-a-kind</td>
-              <td>{scoring.threeKind ? scoring.threeKind : "X"}</td>
+            <td>{scoring.threeKind ? scoring.threeKind : "X"}</td>
           </tr>
           <tr>
             <td>Four-of-a-kind</td>
-            <td>{score}</td>
+            <td>{scoring.fourKind ? scoring.fourKind : "X"}</td>
           </tr>
           <tr>
             <td>Full House</td>
@@ -80,7 +80,7 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Yahtzee</td>
-            <td>{score}</td>
+            <td>{scoring.yahtzee ? scoring.yahtzee : "X"}</td>
           </tr>
           <tr>
             <td>Chance</td>
