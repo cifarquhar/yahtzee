@@ -27,8 +27,20 @@ class GameContainer extends Component {
     }
   }
 
+  sumGivenValues(dice, valueToCheck){
+    let runningTotal = 0;
+    dice.forEach(die => {
+      if (die.value === valueToCheck){
+        runningTotal += valueToCheck;
+      };
+    });
+    return runningTotal;
+  }
+
+
   updateScoreValue(newScore, dice){
     this.setState({holderValue: newScore});
+
   }
 
 
