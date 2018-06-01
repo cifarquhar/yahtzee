@@ -8,7 +8,6 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-      holderValue: 0,
       scoring: {
         aces: null,
         twos: null,
@@ -24,9 +23,8 @@ class GameContainer extends Component {
         yahtzee: null,
         chance: null,
       }
-    }
+    };
 
-    this.dieValues = [1,2,3,4,5,6];
   }
 
   sumGivenValues(dice, valueToCheck){
@@ -136,7 +134,7 @@ class GameContainer extends Component {
   }
 
 
-  updateScoreValue(newScore, dice){
+  updateScoreValue(dice){
 
     const kindChecks = this.checkNofKind(dice);
 
@@ -144,7 +142,7 @@ class GameContainer extends Component {
 
     const diceTotal = this.sumAllDice(dice);
 
-    this.setState({holderValue: newScore, 
+    this.setState({ 
     scoring: {
       aces: this.sumGivenValues(dice, 1),
       twos: this.sumGivenValues(dice, 2),
@@ -169,7 +167,7 @@ class GameContainer extends Component {
     return (
       <div>
         <DiceContainer handleUpdate={this.updateScoreValue.bind(this)}/>
-        <CardContainer scoreValue={this.state.holderValue} scoring={this.state.scoring}/>
+        <CardContainer scoring={this.state.scoring}/>
       </div>
     );
 

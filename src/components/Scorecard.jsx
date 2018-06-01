@@ -10,7 +10,6 @@ class Scorecard extends Component {
 
 
   render(){
-    const score = this.props.scoreValue;
     const scoring = this.props.scoring;
 
     return(

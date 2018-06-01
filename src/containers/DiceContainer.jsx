@@ -21,12 +21,10 @@ class DiceContainer extends Component {
     this.dice = [this.die1, this.die2, this.die3, this.die4, this.die5];
 
   }
-
   
   getDieValue() {
     return Math.floor(Math.random() * 6) + 1;
   }
-
 
   rollDice(){
 
@@ -43,10 +41,9 @@ class DiceContainer extends Component {
        totalValue += die.value
       })
 
-      this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(totalValue, this.dice));
+      this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(this.dice));
     }
   }
-
 
   flipHeldState(die){
     if (this.state.rollsRemaining < 3){
@@ -55,15 +52,13 @@ class DiceContainer extends Component {
     }
   }
 
-
   advanceTurn(){
     this.dice.forEach(die => {
       die.value = null;
       die.held = false;
     });
-    this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(0, this.dice));
+    this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(this.dice));
   }
-
 
   render() {
 
