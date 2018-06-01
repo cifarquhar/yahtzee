@@ -8,12 +8,12 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-      scoreValue: 0
+      holderValue: 0
     }
   }
 
   updateScoreValue(newScore){
-    this.setState({scoreValue: newScore});
+    this.setState({holderValue: newScore});
   }
 
 
@@ -22,7 +22,7 @@ class GameContainer extends Component {
     return (
       <div>
         <DiceContainer handleUpdate={this.updateScoreValue.bind(this)}/>
-        <CardContainer scoreValue={this.state.scoreValue}/>
+        <CardContainer scoreValue={this.state.holderValue}/>
       </div>
     );
 
