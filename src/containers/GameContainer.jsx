@@ -48,7 +48,7 @@ class GameContainer extends Component {
   }
 
   mapDieValues(dice){
-    values = dice.map(die => {
+    let values = dice.map(die => {
       return die.value;
     });
     return values;
@@ -102,10 +102,45 @@ class GameContainer extends Component {
     return checks;
   }
 
+  straightChecker(dice){
+    const values = this.mapDieValues(dice);
+
+    let checks = {
+      low: false,
+      high: false
+    };
+
+    const presence = {
+      ace: values.includes(1),
+      two: values.includes(2),
+      three: values.includes(3),
+      four: values.includes(4),
+      five: values.includes(5),
+      six: values.includes(6),
+    }
+
+    if (presence.three && presence.four){
+      if (presence.two && presence.five){
+        checks.low = true;
+        if (presence.ace || presence.six){
+          checks.high = true;
+        };
+      }
+      else if ((presence.ace && presence.two) || (presence.five && presence.six)){
+        checks.low = true;
+      };
+    };
+
+    return checks;
+
+  }
+
 
   updateScoreValue(newScore, dice){
 
-    const checks = this.checkNofKind(dice);
+    const kindChecks = this.checkNofKind(dice);
+
+    const straightChecks = this.straightChecker(dice);
 
     const diceTotal = this.sumAllDice(dice);
 
@@ -117,10 +152,12 @@ class GameContainer extends Component {
       fours: this.sumGivenValues(dice, 4),
       fives: this.sumGivenValues(dice, 5),
       sixes: this.sumGivenValues(dice, 6),
-      threeKind: checks.three ? diceTotal : 0,
-      fourKind: checks.four ? diceTotal : 0,
-      house: checks.two && checks.three ? 25 : 0,
-      yahtzee: checks.five ? 50 : 0,
+      threeKind: kindChecks.three ? diceTotal : 0,
+      fourKind: kindChecks.four ? diceTotal : 0,
+      house: kindChecks.two && kindChecks.three ? 25 : 0,
+      low: straightChecks.low ? 30 : 0,
+      high: straightChecks.high ? 40 : 0,
+      yahtzee: kindChecks.five ? 50 : 0,
       chance: diceTotal  
     }});
 

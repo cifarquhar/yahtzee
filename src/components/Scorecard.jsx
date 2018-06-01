@@ -72,11 +72,11 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Low Straight</td>
-            <td>{score}</td>
+            <td>{scoring.low ? scoring.low : "X"}</td>
           </tr>
           <tr>
             <td>High Straight</td>
-            <td>{score}</td>
+            <td>{scoring.high ? scoring.high : "X"}</td>
           </tr>
           <tr>
             <td>Yahtzee</td>
