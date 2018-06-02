@@ -35,12 +35,6 @@ class DiceContainer extends Component {
         }
       });
 
-      let totalValue = 0;
-
-      this.dice.forEach(die => {
-       totalValue += die.value
-      })
-
       this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(this.dice));
     }
   }
