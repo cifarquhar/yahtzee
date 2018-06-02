@@ -12,8 +12,6 @@ class Scorecard extends Component {
     const s = this.props.scoring;
     const c = this.props.player.currentScores
 
-    console.log(c);
-
     return(
       <div>
         <table>

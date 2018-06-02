@@ -166,8 +166,6 @@ class GameContainer extends Component {
 
   render(){
 
-    console.log(this.player);
-
     return (
       <div>
         <DiceContainer handleUpdate={this.updateScoreValue.bind(this)}/>
