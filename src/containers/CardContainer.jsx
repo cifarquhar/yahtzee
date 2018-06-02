@@ -12,7 +12,7 @@ class CardContainer extends Component {
 
     return (
       <div className="card-container">
-        <Scorecard scoring={this.props.scoring}/>
+        <Scorecard scoring={this.props.scoring} player={this.props.player}/>
       </div>
     );
 
