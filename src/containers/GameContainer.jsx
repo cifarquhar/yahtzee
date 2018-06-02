@@ -25,6 +25,8 @@ class GameContainer extends Component {
       }
     };
 
+    this.player = this.props.player;
+
   }
 
   sumGivenValues(dice, valueToCheck){
@@ -164,10 +166,12 @@ class GameContainer extends Component {
 
   render(){
 
+    console.log(this.player);
+
     return (
       <div>
         <DiceContainer handleUpdate={this.updateScoreValue.bind(this)}/>
-        <CardContainer scoring={this.state.scoring}/>
+        <CardContainer scoring={this.state.scoring} player={this.player}/>
       </div>
     );
 
