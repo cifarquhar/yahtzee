@@ -17,7 +17,12 @@
 }
 
 td{
-  &:hover{
-    border: 1px solid $c-dice-hover;
+  border: 1px solid black;
+
+  &.score{
+    
+    &:hover{
+      border: 1px solid $c-dice-hover;
+    }
   }
 }
