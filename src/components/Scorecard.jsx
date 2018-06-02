@@ -8,9 +8,8 @@ class Scorecard extends Component {
     super(props)
   }
 
-
   render(){
-    const scoring = this.props.scoring;
+    const s = this.props.scoring;
 
     return(
       <div>
@@ -22,27 +21,27 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Aces</td>
-            <td>{scoring.aces ? scoring.aces : "X"}</td>
+            <td>{s.aces ? s.aces : "X"}</td>
           </tr>
           <tr>
             <td>Twos</td>
-            <td>{scoring.twos ? scoring.twos : "X"}</td>
+            <td>{s.twos ? s.twos : "X"}</td>
           </tr>
           <tr>
             <td>Threes</td>
-            <td>{scoring.threes ? scoring.threes : "X"}</td>
+            <td>{s.threes ? s.threes : "X"}</td>
           </tr>
           <tr>
             <td>Fours</td>
-            <td>{scoring.fours ? scoring.fours : "X"}</td>
+            <td>{s.fours ? s.fours : "X"}</td>
           </tr>
           <tr>
             <td>Fives</td>
-            <td>{scoring.fives ? scoring.fives : "X"}</td>
+            <td>{s.fives ? s.fives : "X"}</td>
           </tr>
           <tr>
             <td>Sixes</td>
-            <td>{scoring.sixes ? scoring.sixes : "X"}</td>
+            <td>{s.sixes ? s.sixes : "X"}</td>
           </tr>
           <tr>
             <th>Bonus</th>
@@ -59,31 +58,31 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <td>Three-of-a-kind</td>
-            <td>{scoring.threeKind ? scoring.threeKind : "X"}</td>
+            <td>{s.threeKind ? s.threeKind : "X"}</td>
           </tr>
           <tr>
             <td>Four-of-a-kind</td>
-            <td>{scoring.fourKind ? scoring.fourKind : "X"}</td>
+            <td>{s.fourKind ? s.fourKind : "X"}</td>
           </tr>
           <tr>
             <td>Full House</td>
-            <td>{scoring.house ? scoring.house : "X"}</td>
+            <td>{s.house ? s.house : "X"}</td>
           </tr>
           <tr>
             <td>Low Straight</td>
-            <td>{scoring.low ? scoring.low : "X"}</td>
+            <td>{s.low ? s.low : "X"}</td>
           </tr>
           <tr>
             <td>High Straight</td>
-            <td>{scoring.high ? scoring.high : "X"}</td>
+            <td>{s.high ? s.high : "X"}</td>
           </tr>
           <tr>
             <td>Yahtzee</td>
-            <td>{scoring.yahtzee ? scoring.yahtzee : "X"}</td>
+            <td>{s.yahtzee ? s.yahtzee : "X"}</td>
           </tr>
           <tr>
             <td>Chance</td>
-              <td>{scoring.chance ? scoring.chance : "X"}</td>
+              <td>{s.chance ? s.chance : "X"}</td>
           </tr>
           <tr>
             <th>Yahtzee Bonus</th>
