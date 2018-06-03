@@ -57,6 +57,11 @@ class DiceContainer extends Component {
     this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(this.dice));
   }
 
+  handleReset(){
+    this.advanceTurn();
+    this.props.resetGame();
+  }
+
   render() {
 
     const diceToRender = this.dice.map((array,index) => {
@@ -78,6 +83,7 @@ class DiceContainer extends Component {
         <p>Rolls remaining: {this.state.rollsRemaining}</p>
         <Button onClick={this.rollDice.bind(this)} block>Roll</Button>
         <Button onClick={this.advanceTurn.bind(this)} block>Next Turn</Button>
+        <Button onClick={this.handleReset.bind(this)} block>New Game</Button>
       </div>
     );
 
