@@ -57,11 +57,25 @@ class Scorecard extends Component {
 
     if (c.aces !== null && c.twos !== null && c.thress !== null && c.fours !== null && c.fives !== null && c.sixes !== null){
       tableRows.classes.bonus = "score filled";
-      tableRows.classes.upperTotal = "score filled"
+      tableRows.classes.upperTotal = "score filled";
     }
     else {
       tableRows.classes.bonus = "score special";
-      tableRows.classes.upperTotal = "score special"
+      tableRows.classes.upperTotal = "score special";
+    }
+
+    if (c.threeKind !== null && c.fourKind !== null && c.house !== null && c.low !== null && c.high !== null && c.yahtzee !== null && c.chance !== null){
+      tableRows.classes.lowerTotal = "score filled";
+    }
+    else {
+      tableRows.classes.lowerTotal = "score special";
+    }
+
+    if (tableRows.classes.upperTotal === "score filled" && tableRows.classes.lowerTotal === "score filled") {
+      tableRows.classes.gameTotal = "score filled";
+    }
+    else {
+      tableRows.classes.gameTotal = "score special";
     }
 
     return tableRows;
@@ -149,11 +163,11 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <th>Lower Section Total</th>
-            <td>{tableRows.content.lowerTotal}</td>
+            <td className={tableRows.classes.lowerTotal}>{tableRows.content.lowerTotal}</td>
           </tr>
           <tr>
             <th>Grand Total</th>
-            <td>{tableRows.content.gameTotal}</td>
+            <td className={tableRows.classes.gameTotal}>{tableRows.content.gameTotal}</td>
           </tr>
           </tbody>
         </table>
