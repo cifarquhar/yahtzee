@@ -27,15 +27,17 @@ class DiceContainer extends Component {
   }
 
   rollDice(){
+    if (!this.props.scored){
 
-    if (this.state.rollsRemaining){
-      this.dice.forEach(die => {
-        if (!die.held){
-          die.value = this.getDieValue();
-        }
-      });
-
-      this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(this.dice));
+      if (this.state.rollsRemaining){
+        this.dice.forEach(die => {
+          if (!die.held){
+            die.value = this.getDieValue();
+          }
+        });
+        
+        this.setState({rollsRemaining: this.state.rollsRemaining - 1}, () => this.props.handleUpdate(this.dice));
+      }
     }
   }
 
@@ -51,6 +53,7 @@ class DiceContainer extends Component {
       die.value = null;
       die.held = false;
     });
+    this.props.resetScore();
     this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(this.dice));
   }
 

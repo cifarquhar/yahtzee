@@ -180,6 +180,7 @@ class GameContainer extends Component {
         <DiceContainer 
           handleUpdate={this.updateScoreValue.bind(this)} 
           resetScore={this.resetRollScored.bind(this)}
+          scored={this.state.scored}
         />
         <CardContainer 
           scoring={this.state.scoring} 
