@@ -39,9 +39,6 @@ class Scorecard extends Component {
       else {
         tableRows.classes[category] = "score";
       }
-    });
-    
-    categories.forEach(category => {
       c[category] ? tableRows.content[category] = c[category] : (s[category] ? tableRows.content[category] = s[category] : tableRows.content[category] = "X");
     });
 
