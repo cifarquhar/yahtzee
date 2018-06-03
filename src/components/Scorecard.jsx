@@ -22,6 +22,9 @@ class Scorecard extends Component {
   }
 
   buildContent(){
+
+    this.props.player.calculateBonus();
+
     const c = this.props.player.currentScores;
     const s = this.props.scoring;
 
@@ -82,7 +85,7 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <th>Bonus</th>
-            <td>TODO</td>
+            <td className={tableRows.classes.bonus}>{tableRows.content.bonus}</td>
           </tr>
           <tr>
             <th>Upper Section Total</th>
