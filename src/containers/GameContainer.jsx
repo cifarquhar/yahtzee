@@ -22,7 +22,8 @@ class GameContainer extends Component {
         high: null,
         yahtzee: null,
         chance: null,
-      }
+      },
+      scored: false
     };
 
     this.player = this.props.player;
@@ -135,6 +136,14 @@ class GameContainer extends Component {
 
   }
 
+  markRollScored(){
+    this.setState({scored: true});
+  }
+
+  resetRollScored(){
+    this.setState({scored: false});
+  }
+
 
   updateScoreValue(dice){
 
@@ -168,8 +177,16 @@ class GameContainer extends Component {
 
     return (
       <div>
-        <DiceContainer handleUpdate={this.updateScoreValue.bind(this)}/>
-        <CardContainer scoring={this.state.scoring} player={this.player}/>
+        <DiceContainer 
+          handleUpdate={this.updateScoreValue.bind(this)} 
+          resetScore={this.resetRollScored.bind(this)}
+        />
+        <CardContainer 
+          scoring={this.state.scoring} 
+          player={this.player}
+          scored={this.state.scored}
+          setScored={this.markRollScored.bind(this)}
+        />
       </div>
     );
 

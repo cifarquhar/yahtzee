@@ -9,10 +9,16 @@ class CardContainer extends Component {
   }
 
   render() {
+    const p = this.props;
 
     return (
       <div className="card-container">
-        <Scorecard scoring={this.props.scoring} player={this.props.player}/>
+        <Scorecard 
+          scoring={p.scoring} 
+          player={p.player}
+          scored={p.scored}
+          setScored={p.setScored.bind(this)}
+        />
       </div>
     );
 

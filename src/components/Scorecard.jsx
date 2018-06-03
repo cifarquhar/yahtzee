@@ -9,17 +9,23 @@ class Scorecard extends Component {
   }
 
   handleClick(category){
-    const s = this.props.scoring;
-    const c = this.props.player.currentScores;
+    const p = this.props;
+    const s = p.scoring;
+    const c = p.player.currentScores;
 
-    if (c[category] === null){
-      c[category] = s[category];
-    };
+    if (!p.scored){   
+      if (c[category] === null){
+        c[category] = s[category];
+        p.setScored();
+      };
+    }
   }
 
   render(){
     const s = this.props.scoring;
     const c = this.props.player.currentScores
+
+    console.log(c);
 
     return(
       <div>
