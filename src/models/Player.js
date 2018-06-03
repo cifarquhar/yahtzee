@@ -31,6 +31,21 @@ class Player {
     singlesTotal >= 63 ? c.bonus = 35 : c.bonus = 0;
   }
 
+  calculateUpperTotal(){
+    const c = this.currentScores;
+    c.upperTotal = c.aces + c.twos + c.threes + c.fours + c.fives + c.sixes + c.bonus;
+  }
+
+  calculateLowerTotal(){
+    const c = this.currentScores;
+    c.lowerTotal = c.threeKind + c.fourKind + c.house + c.low + c.high + c.yahtzee + c.chance;
+  }
+
+  calculateGameTotal(){
+    const c = this.currentScores;
+    c.gameTotal = c.upperTotal + c.lowerTotal;
+  }
+
 }
 
 export default Player;
