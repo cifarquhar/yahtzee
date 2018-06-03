@@ -21,6 +21,14 @@ td{
 
   &.score{
     color: #bdbdbd;
+
+    &.filled{
+      color: black;
+
+      &:hover{
+        border: 1px solid black;
+      }
+    }
     
     &:hover{
       border: 1px solid $c-dice-hover;
