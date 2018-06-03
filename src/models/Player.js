@@ -24,6 +24,13 @@ class Player {
     }
   }
 
+  calculateBonus(){
+    const c = this.currentScores;
+    const singlesTotal = c.aces + c.twos + c.threes + c.fours + c.fives + c.sixes;
+
+    singlesTotal >= 63 ? c.bonus = 35 : c.bonus = 0;
+  }
+
 }
 
 export default Player;
