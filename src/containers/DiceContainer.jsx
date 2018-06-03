@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Button} from "react-bootstrap"
+import {Button, ButtonToolbar} from "react-bootstrap"
 import Dice from "../components/Dice";
 import "../styles/containers.css";
 
@@ -81,9 +81,11 @@ class DiceContainer extends Component {
           {diceToRender}
         </div>
         <p>Rolls remaining: {this.state.rollsRemaining}</p>
-        <Button onClick={this.rollDice.bind(this)} block>Roll</Button>
-        <Button onClick={this.advanceTurn.bind(this)} block>Next Turn</Button>
-        <Button onClick={this.handleReset.bind(this)} block>New Game</Button>
+        <ButtonToolbar>
+          <Button bsStyle="primary" bsSize="large" onClick={this.rollDice.bind(this)}>Roll</Button>
+          <Button bsStyle="primary" bsSize="large" onClick={this.advanceTurn.bind(this)}>Next Turn</Button>
+          <Button bsStyle="primary" bsSize="large" onClick={this.handleReset.bind(this)}>New Game</Button>
+        </ButtonToolbar>
       </div>
     );
 
