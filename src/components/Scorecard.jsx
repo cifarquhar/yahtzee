@@ -28,7 +28,9 @@ class Scorecard extends Component {
     const c = this.props.player.currentScores;
     const s = this.props.scoring;
 
-    const categories = ["aces","twos","threes","fours","fives","sixes","threeKind","fourKind","house","low","high","yahtzee","chance","bonus","upperTotal","lowerTotal","gameTotal"];
+    const categories = ["aces","twos","threes","fours","fives","sixes","threeKind","fourKind","house","low","high","yahtzee","chance"];
+
+    const specialCategories = ["bonus", "upperTotal", "lowerTotal", "gameTotal"];
 
     let tableRows = {
       classes: {},
@@ -44,6 +46,17 @@ class Scorecard extends Component {
       }
       c[category] ? tableRows.content[category] = c[category] : (s[category] ? tableRows.content[category] = s[category] : tableRows.content[category] = "X");
     });
+
+    specialCategories.forEach(category =>{
+      c[category] ? tableRows.content[category] = c[category] : (s[category] ? tableRows.content[category] = s[category] : tableRows.content[category] = "X");
+    })
+
+    if (c.aces !== null && c.twos !== null && c.thress !== null && c.fours !== null && c.fives !== null && c.sixes !== null){
+      tableRows.classes.bonus = "score filled";
+    }
+    else {
+      tableRows.classes.bonus = "score special";
+    }
 
     return tableRows;
   }

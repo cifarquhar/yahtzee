@@ -29,6 +29,13 @@ td{
         border: 1px solid black;
       }
     }
+
+    &.special{
+      &:hover{
+        color: #bdbdbd;
+        border: 1px solid black;
+      }
+    }
     
     &:hover{
       border: 1px solid $c-dice-hover;
