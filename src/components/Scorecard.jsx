@@ -21,7 +21,7 @@ class Scorecard extends Component {
     }
   }
 
-  buildClassList(){
+  buildContent(){
     const c = this.props.player.currentScores;
     const s = this.props.scoring;
 
@@ -49,7 +49,7 @@ class Scorecard extends Component {
   }
 
   render(){
-    const tableRows = this.buildClassList();
+    const tableRows = this.buildContent();
 
     return(
       <div>
