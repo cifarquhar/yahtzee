@@ -22,8 +22,12 @@ class Scorecard extends Component {
   }
 
   buildContent(){
+    const player = this.props.player;
 
-    this.props.player.calculateBonus();
+    player.calculateBonus();
+    player.calculateUpperTotal();
+    player.calculateLowerTotal();
+    player.calculateGameTotal();
 
     const c = this.props.player.currentScores;
     const s = this.props.scoring;
@@ -53,9 +57,11 @@ class Scorecard extends Component {
 
     if (c.aces !== null && c.twos !== null && c.thress !== null && c.fours !== null && c.fives !== null && c.sixes !== null){
       tableRows.classes.bonus = "score filled";
+      tableRows.classes.upperTotal = "score filled"
     }
     else {
       tableRows.classes.bonus = "score special";
+      tableRows.classes.upperTotal = "score special"
     }
 
     return tableRows;
@@ -102,7 +108,7 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <th>Upper Section Total</th>
-            <td>TODO</td>
+            <td className={tableRows.classes.upperTotal}>{tableRows.content.upperTotal}</td>
           </tr>
           <tr>
           </tr>
@@ -143,11 +149,11 @@ class Scorecard extends Component {
           </tr>
           <tr>
             <th>Lower Section Total</th>
-            <td>TODO</td>
+            <td>{tableRows.content.lowerTotal}</td>
           </tr>
           <tr>
             <th>Grand Total</th>
-            <td>TODO</td>
+            <td>{tableRows.content.gameTotal}</td>
           </tr>
           </tbody>
         </table>
