@@ -20,9 +20,11 @@ td{
   border: 1px solid black;
 
   &.score{
+    color: #bdbdbd;
     
     &:hover{
       border: 1px solid $c-dice-hover;
+      color: black;
     }
   }
 }
