@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { OverlayTrigger, Popover } from "react-bootstrap";
 
 import "../styles/components.css";
 
@@ -85,7 +85,7 @@ class Scorecard extends Component {
   render(){
     const tableRows = this.buildContent();
 
-    const testOverlay = (<Tooltip id="tooltip">"test"</Tooltip>);
+    const testOverlay = (<Popover id="test" title="test">{"test"}</Popover>);
 
     return(
       <div>
@@ -96,7 +96,7 @@ class Scorecard extends Component {
             <th>Upper Section</th>
           </tr>
           <tr>
-              <OverlayTrigger placement="top" overlay={testOverlay}><td>Aces</td></OverlayTrigger>
+              <OverlayTrigger trigger={["hover", "focus"]} placement="top" overlay={testOverlay}><td>Aces</td></OverlayTrigger>
             <td className={tableRows.classes.aces} onClick={() => this.handleClick("aces")}>{tableRows.content.aces}</td>
           </tr>
           <tr>
