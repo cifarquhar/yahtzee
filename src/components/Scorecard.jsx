@@ -6,9 +6,9 @@ import "../styles/components.css";
 
 class Scorecard extends Component {
 
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   handleClick(category){
     const p = this.props;

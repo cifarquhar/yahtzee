@@ -11,9 +11,9 @@ import "../styles/components.css"
 
 class Dice extends Component {
 
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
 
   getImageSource(){

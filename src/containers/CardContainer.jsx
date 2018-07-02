@@ -4,9 +4,9 @@ import "../styles/containers.css";
 
 class CardContainer extends Component {
 
-  constructor(props){
-    super(props);
-  }
+  // constructor(props){
+  //   super(props);
+  // }
 
   render() {
     const p = this.props;
