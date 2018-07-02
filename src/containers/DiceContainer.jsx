@@ -80,12 +80,14 @@ class DiceContainer extends Component {
         <div className="dice-container">
           {diceToRender}
         </div>
-        <p>Rolls remaining: {this.state.rollsRemaining}</p>
-        <ButtonToolbar>
-          <Button bsStyle="primary" bsSize="large" onClick={this.rollDice.bind(this)}>Roll</Button>
-          <Button bsStyle="primary" bsSize="large" onClick={this.advanceTurn.bind(this)}>Next Turn</Button>
-          <Button bsStyle="primary" bsSize="large" onClick={this.handleReset.bind(this)}>New Game</Button>
-        </ButtonToolbar>
+        <div style={{marginLeft: "35%"}}>
+          <p>Rolls remaining: {this.state.rollsRemaining}</p>
+          <ButtonToolbar>
+            <Button bsStyle="primary" bsSize="large" onClick={this.rollDice.bind(this)} style={{margin: "10px"}}>Roll</Button>
+            <Button bsStyle="primary" bsSize="large" onClick={this.advanceTurn.bind(this)} style={{ margin: "10px" }}>Next Turn</Button>
+            <Button bsStyle="danger" bsSize="large" onClick={this.handleReset.bind(this)} style={{ margin: "10px" }}>New Game</Button>
+          </ButtonToolbar>
+        </div>
       </div>
     );
 
