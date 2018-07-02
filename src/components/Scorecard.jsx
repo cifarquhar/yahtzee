@@ -104,7 +104,13 @@ class Scorecard extends Component {
     return(
       <div className="table-container">
         <table>
-          <thead></thead>
+          <thead>
+            <tr>
+              <th>
+                {this.props.player.name}
+              </th>
+            </tr>
+          </thead>
           <tbody>
           <tr>
             <th>Upper Section</th>
