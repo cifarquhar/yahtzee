@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {Button, ButtonToolbar} from "react-bootstrap"
 import Dice from "../components/Dice";
 import "../styles/containers.css";
+import "../styles/components.css";
 
 class DiceContainer extends Component {
 
@@ -80,7 +81,7 @@ class DiceContainer extends Component {
         <div className="dice-container">
           {diceToRender}
         </div>
-        <div style={{marginLeft: "35%"}}>
+        <div className="button-container">
           <p>Rolls remaining: {this.state.rollsRemaining}</p>
           <ButtonToolbar>
             <Button bsStyle="primary" bsSize="large" onClick={this.rollDice.bind(this)} style={{margin: "10px"}}>Roll</Button>

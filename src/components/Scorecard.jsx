@@ -102,7 +102,7 @@ class Scorecard extends Component {
     const overlays = this.generateOverlays();
 
     return(
-      <div>
+      <div className="table-container">
         <table>
           <thead></thead>
           <tbody>
