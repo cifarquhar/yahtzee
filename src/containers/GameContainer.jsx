@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Modal, FormControl, FormGroup, Button} from "react-bootstrap";
 import DiceContainer from "./DiceContainer";
 import CardContainer from "./CardContainer";
 
@@ -24,7 +25,8 @@ class GameContainer extends Component {
         chance: null,
       },
       scored: false,
-      activePlayer: this.props.player
+      activePlayer: this.props.player,
+      showNewGameModal: false
     };
 
     this.enteredNames = [];
@@ -178,6 +180,22 @@ class GameContainer extends Component {
     this.state.activePlayer.resetScores();
   }
 
+  flipNewGameModalState(){
+    this.setState({showNewGameModal: !this.state.showNewGameModal});
+  }
+
+  confirmNewGame() {
+    if (!this.state.activePlayer) {
+      this.flipNewGameModalState();
+    }
+    else {
+      let check = window.confirm("Are you sure you want to start a new game?");
+      if (check) {
+        this.flipNewGameModalState();
+      }
+    }
+  }
+
 
   render(){
 
@@ -186,7 +204,7 @@ class GameContainer extends Component {
         <DiceContainer 
           handleUpdate={this.updateScoreValue.bind(this)} 
           resetScore={this.resetRollScored.bind(this)}
-          resetGame={this.resetGameState.bind(this)}
+          resetGame={this.confirmNewGame.bind(this)}
           scored={this.state.scored}
         />
         <CardContainer 
@@ -195,6 +213,46 @@ class GameContainer extends Component {
           scored={this.state.scored}
           setScored={this.markRollScored.bind(this)}
         />
+
+        <Modal
+          show={this.state.showNewGameModal}
+          onHide={this.flipNewGameModalState}
+          container={this}
+          animation={false}>
+          <Modal.Header>
+            <Modal.Title>New Game</Modal.Title>
+          </Modal.Header>
+
+          <Modal.Body>
+            <form>
+              <FormGroup>
+                <FormControl type="text" onChange={(e) => { this.enteredNames[0] =e.target.value }} placeholder="Player 1" />
+              </FormGroup>
+              <FormGroup>
+                <FormControl type="text" onChange={(e) => { this.enteredNames[1] =e.target.value }} placeholder="Player 2" />
+              </FormGroup>
+              <FormGroup>
+                <FormControl type="text" onChange={(e) => { this.enteredNames[2] =e.target.value }} placeholder="Player 3" />
+              </FormGroup>
+              <FormGroup>
+                <FormControl type="text" onChange={(e) => { this.enteredNames[3] =e.target.value }} placeholder="Player 4" />
+              </FormGroup>
+              <FormGroup>
+                <FormControl type="text" onChange={(e) => { this.enteredNames[4] =e.target.value }} placeholder="Player 5" />
+              </FormGroup>
+              <FormGroup>
+                <FormControl type="text" onChange={(e) => { this.enteredNames[5] =e.target.value }} placeholder="Player 6" />
+              </FormGroup>
+            </form>
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button onClick={this.flipNewGameModalState.bind(this)}>Start Game</Button>
+          </Modal.Footer>
+        </Modal>
+
+
+
       </div>
     );
 
