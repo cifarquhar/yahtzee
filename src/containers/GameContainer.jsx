@@ -23,10 +23,12 @@ class GameContainer extends Component {
         yahtzee: null,
         chance: null,
       },
-      scored: false
+      scored: false,
+      activePlayer: this.props.player
     };
 
-    this.player = this.props.player;
+    this.enteredNames = [];
+    this.players = [];
 
   }
 
@@ -173,7 +175,7 @@ class GameContainer extends Component {
   }
 
   resetGameState(){
-    this.player.resetScores();
+    this.state.activePlayer.resetScores();
   }
 
 
@@ -189,7 +191,7 @@ class GameContainer extends Component {
         />
         <CardContainer 
           scoring={this.state.scoring} 
-          player={this.player}
+          player={this.state.activePlayer}
           scored={this.state.scored}
           setScored={this.markRollScored.bind(this)}
         />
