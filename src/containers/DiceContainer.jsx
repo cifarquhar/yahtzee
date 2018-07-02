@@ -50,12 +50,14 @@ class DiceContainer extends Component {
   }
 
   advanceTurn(){
-    this.dice.forEach(die => {
-      die.value = null;
-      die.held = false;
-    });
-    this.props.resetScore();
-    this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(this.dice));
+    if (this.props.scored){
+      this.dice.forEach(die => {
+        die.value = null;
+        die.held = false;
+      });
+      this.props.resetScore();
+      this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(this.dice));
+    }
   }
 
   handleReset(){
