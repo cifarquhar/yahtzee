@@ -30,11 +30,14 @@ class GameContainer extends Component {
       started: false,
       scored: false,
       activePlayer: this.dummyPlayer,
-      showNewGameModal: false
+      showNewGameModal: false,
+      turnsTaken: 0
     };
 
     this.enteredNames = [];
     this.players = [];
+
+    this.maxTurns = this.players.length * 13;
 
   }
 
