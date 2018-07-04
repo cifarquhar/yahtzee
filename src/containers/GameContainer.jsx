@@ -186,13 +186,13 @@ class GameContainer extends Component {
   }
 
   confirmNewGame() {
-    if (!this.state.activePlayer) {
-      this.flipNewGameModalState();
+    if (!this.state.started) {
+      this.setState({ activePlayer: this.dummyPlayer }, () => this.flipNewGameModalState());
     }
     else {
       let check = window.confirm("Are you sure you want to start a new game?");
       if (check) {
-        this.setState({activePlayer: this.dummyPlayer}, () => this.setupNewGame());
+        this.setState({activePlayer: this.dummyPlayer, started: false}, () => this.setupNewGame());
       }
     }
   }
@@ -215,7 +215,7 @@ class GameContainer extends Component {
         }
       })
     }
-    this.setState({activePlayer: this.players[0]}, () => this.flipNewGameModalState());
+    this.setState({activePlayer: this.players[0], started: true}, () => this.flipNewGameModalState());
   }
 
   advanceActivePlayer(){
