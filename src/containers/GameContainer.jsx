@@ -27,6 +27,7 @@ class GameContainer extends Component {
         yahtzee: null,
         chance: null,
       },
+      started: false,
       scored: false,
       activePlayer: this.dummyPlayer,
       showNewGameModal: false
