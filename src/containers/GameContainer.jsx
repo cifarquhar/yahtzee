@@ -203,11 +203,6 @@ class GameContainer extends Component {
     this.flipNewGameModalState();
   }
 
-  startNewGame(){
-    this.startGame();
-    this.flipNewGameModalState();
-  }
-
   startGame() {
     if (this.enteredNames.length < 2) {
       window.alert("Please add at least two players");
