@@ -9,6 +9,8 @@ class GameContainer extends Component {
   constructor(props){
     super(props);
 
+    this.dummyPlayer = new Player("");
+
     this.state = {
       scoring: {
         aces: null,
@@ -26,7 +28,7 @@ class GameContainer extends Component {
         chance: null,
       },
       scored: false,
-      activePlayer: new Player(""),
+      activePlayer: this.dummyPlayer,
       showNewGameModal: false
     };
 
@@ -177,11 +179,6 @@ class GameContainer extends Component {
 
   }
 
-  resetGameState(){
-    this.players.forEach(player => {
-      player.resetScores();
-    })
-  }
 
   flipNewGameModalState(){
     this.setState({showNewGameModal: !this.state.showNewGameModal});
@@ -194,13 +191,18 @@ class GameContainer extends Component {
     else {
       let check = window.confirm("Are you sure you want to start a new game?");
       if (check) {
-        this.flipNewGameModalState();
+        this.setState({activePlayer: this.dummyPlayer}, () => this.setupNewGame());
       }
     }
   }
 
+  setupNewGame() {
+    this.enteredNames = [];
+    this.players = [];
+    this.flipNewGameModalState();
+  }
+
   startNewGame(){
-    this.resetGameState();
     this.startGame();
     this.flipNewGameModalState();
   }
@@ -217,7 +219,7 @@ class GameContainer extends Component {
         }
       })
     }
-    this.setState({activePlayer: this.players[0]});
+    this.setState({activePlayer: this.players[0]}, () => this.flipNewGameModalState());
   }
 
   advanceActivePlayer(){
@@ -278,7 +280,7 @@ class GameContainer extends Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={this.startNewGame.bind(this)}>Start Game</Button>
+            <Button onClick={this.startGame.bind(this)}>Start Game</Button>
           </Modal.Footer>
         </Modal>
 
