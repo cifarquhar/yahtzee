@@ -30,13 +30,13 @@ class GameContainer extends Component {
       started: false,
       scored: false,
       activePlayer: this.dummyPlayer,
-      showNewGameModal: false,
-      turnsTaken: 0
+      showNewGameModal: false
     };
 
     this.enteredNames = [];
     this.players = [];
 
+    this.turnsTaken = 0;
     this.maxTurns = this.players.length * 13;
 
   }
@@ -224,7 +224,7 @@ class GameContainer extends Component {
   advanceActivePlayer(){
     const currentIndex = this.players.indexOf(this.state.activePlayer);
     const playerNumber = this.players.length;
-    this.setState({activePlayer: this.players[(currentIndex + 1) % playerNumber]});
+    this.setState({activePlayer: this.players[(currentIndex + 1) % playerNumber]}, () => {this.turnsTaken += 1});
   }
 
 
