@@ -204,8 +204,8 @@ class GameContainer extends Component {
   }
 
   startGame() {
-    if (this.enteredNames.length < 2) {
-      window.alert("Please add at least two players");
+    if (this.enteredNames.length < 1) {
+      window.alert("You haven't added any players");
     }
     else {
       this.enteredNames.forEach(name => {
@@ -214,8 +214,8 @@ class GameContainer extends Component {
           this.players.push(player);
         }
       })
+      this.setState({activePlayer: this.players[0], started: true}, () => this.flipNewGameModalState());
     }
-    this.setState({activePlayer: this.players[0], started: true}, () => this.flipNewGameModalState());
   }
 
   advanceActivePlayer(){
@@ -247,7 +247,7 @@ class GameContainer extends Component {
 
         <Modal
           show={this.state.showNewGameModal}
-          onHide={this.flipNewGameModalState}
+          onHide={this.flipNewGameModalState.bind(this)}
           container={this}
           animation={false}>
           <Modal.Header>
@@ -279,6 +279,7 @@ class GameContainer extends Component {
 
           <Modal.Footer>
             <Button onClick={this.startGame.bind(this)}>Start Game</Button>
+            <Button onClick={this.flipNewGameModalState.bind(this)}>Cancel</Button>
           </Modal.Footer>
         </Modal>
 
