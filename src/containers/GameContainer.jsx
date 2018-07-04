@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Modal, FormControl, FormGroup, Button} from "react-bootstrap";
 import DiceContainer from "./DiceContainer";
 import CardContainer from "./CardContainer";
+import Player from "../models/Player";
 
 class GameContainer extends Component {
 
@@ -25,7 +26,7 @@ class GameContainer extends Component {
         chance: null,
       },
       scored: false,
-      activePlayer: this.props.player,
+      activePlayer: new Player(""),
       showNewGameModal: false
     };
 
@@ -198,7 +199,23 @@ class GameContainer extends Component {
 
   startNewGame(){
     this.resetGameState();
+    this.startGame();
     this.flipNewGameModalState();
+  }
+
+  startGame() {
+    if (this.enteredNames.length < 2) {
+      window.alert("Please add at least two players");
+    }
+    else {
+      this.enteredNames.forEach(name => {
+        if (name) {
+          let player = new Player(name);
+          this.players.push(player);
+        }
+      })
+    }
+    this.setState({activePlayer: this.players[0]});
   }
 
 
