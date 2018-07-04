@@ -231,10 +231,24 @@ class GameContainer extends Component {
       this.players.forEach(player => {
         scores.push(player.currentScores.gameTotal);
       })
+      
       const winnerScore = Math.max(...scores);
-      const winnerIndex = scores.indexOf(winnerScore);
-      const winner = this.players[winnerIndex];
-      const message = winner.name + " wins with a score of " + winnerScore;
+      
+      let winners = [];
+      this.players.forEach(player => {
+        if (player.currentScores.gameTotal === winnerScore){
+          winners.push(player);
+        }
+      })
+
+      let message = "";
+      
+      if (winners.length === 1){
+        message = winners[0].name + " wins with a score of " + winnerScore + "!";
+      }
+      else if (winners.length > 1){
+        message = winners[0].name + " and " + winners[1].name + " tie with a score of " + winnerScore + "!";
+      }
       
       this.setState({ started: false }, () => { window.alert(`${message}`)});
     }
