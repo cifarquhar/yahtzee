@@ -196,6 +196,11 @@ class GameContainer extends Component {
     }
   }
 
+  startNewGame(){
+    this.resetGameState();
+    this.flipNewGameModalState();
+  }
+
 
   render(){
 
@@ -247,7 +252,7 @@ class GameContainer extends Component {
           </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={this.flipNewGameModalState.bind(this)}>Start Game</Button>
+            <Button onClick={this.startNewGame.bind(this)}>Start Game</Button>
           </Modal.Footer>
         </Modal>
 
