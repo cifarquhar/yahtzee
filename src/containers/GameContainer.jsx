@@ -218,13 +218,20 @@ class GameContainer extends Component {
     this.setState({activePlayer: this.players[0]});
   }
 
+  advanceActivePlayer(){
+    const currentIndex = this.players.indexOf(this.state.activePlayer);
+    const playerNumber = this.players.length;
+    this.setState({activePlayer: this.players[(currentIndex + 1) % playerNumber]});
+  }
+
 
   render(){
 
     return (
       <div>
         <DiceContainer 
-          handleUpdate={this.updateScoreValue.bind(this)} 
+          handleUpdate={this.updateScoreValue.bind(this)}
+          nextPlayer={this.advanceActivePlayer.bind(this)} 
           resetScore={this.resetRollScored.bind(this)}
           resetGame={this.confirmNewGame.bind(this)}
           scored={this.state.scored}

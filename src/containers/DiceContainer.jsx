@@ -56,6 +56,7 @@ class DiceContainer extends Component {
         die.held = false;
       });
       this.props.resetScore();
+      this.props.nextPlayer();
       this.setState({rollsRemaining: 3 }, () => this.props.handleUpdate(this.dice));
     }
   }
