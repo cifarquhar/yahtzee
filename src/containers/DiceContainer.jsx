@@ -28,7 +28,7 @@ class DiceContainer extends Component {
   }
 
   rollDice(){
-    if (!this.props.scored){
+    if (!this.props.scored && this.props.started){
 
       if (this.state.rollsRemaining){
         this.dice.forEach(die => {

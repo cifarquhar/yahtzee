@@ -235,6 +235,7 @@ class GameContainer extends Component {
           resetScore={this.resetRollScored.bind(this)}
           resetGame={this.confirmNewGame.bind(this)}
           scored={this.state.scored}
+          started={this.state.started}
         />
         <CardContainer 
           scoring={this.state.scoring} 
