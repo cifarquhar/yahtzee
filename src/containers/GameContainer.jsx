@@ -231,21 +231,17 @@ class GameContainer extends Component {
       this.players.forEach(player => {
         scores.push(player.currentScores.gameTotal);
       })
-      console.log(scores)
       const winnerScore = Math.max(...scores);
-      console.log(winnerScore)
       const winnerIndex = scores.indexOf(winnerScore);
-      console.log(winnerIndex)
       const winner = this.players[winnerIndex];
+      const message = winner.name + " wins with a score of " + winnerScore;
       
-      this.setState({ started: false }, () => { window.alert(`${winner.name} wins with a score of ${winnerScore}!`)});
+      this.setState({ started: false }, () => { window.alert(`${message}`)});
     }
   }
 
 
   render(){
-
-    console.log(this.state.maxTurns);
 
     return (
       <div>
