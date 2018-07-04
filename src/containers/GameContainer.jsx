@@ -178,7 +178,9 @@ class GameContainer extends Component {
   }
 
   resetGameState(){
-    this.state.activePlayer.resetScores();
+    this.players.forEach(player => {
+      player.resetScores();
+    })
   }
 
   flipNewGameModalState(){
