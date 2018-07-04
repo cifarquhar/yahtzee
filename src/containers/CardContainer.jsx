@@ -18,6 +18,7 @@ class CardContainer extends Component {
           player={p.player}
           scored={p.scored}
           setScored={p.setScored.bind(this)}
+          started={p.started}
         />
       </div>
     );

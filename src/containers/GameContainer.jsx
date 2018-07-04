@@ -242,6 +242,7 @@ class GameContainer extends Component {
           player={this.state.activePlayer}
           scored={this.state.scored}
           setScored={this.markRollScored.bind(this)}
+          started={this.state.started}
         />
 
         <Modal

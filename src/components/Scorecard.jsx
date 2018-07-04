@@ -15,7 +15,7 @@ class Scorecard extends Component {
     const s = p.scoring;
     const c = p.player.currentScores;
 
-    if (!p.scored){   
+    if (!p.scored && p.started){   
       if (c[category] === null){
         c[category] = s[category];
         p.setScored();
