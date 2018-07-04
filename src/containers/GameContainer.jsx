@@ -30,15 +30,13 @@ class GameContainer extends Component {
       started: false,
       scored: false,
       activePlayer: this.dummyPlayer,
-      showNewGameModal: false
+      showNewGameModal: false,
+      turnsTaken: 0,
+      maxTurns: 0
     };
 
     this.enteredNames = [];
     this.players = [];
-
-    this.turnsTaken = 0;
-    this.maxTurns = this.players.length * 13;
-
   }
 
   sumGivenValues(dice, valueToCheck){
@@ -217,18 +215,37 @@ class GameContainer extends Component {
           this.players.push(player);
         }
       })
-      this.setState({activePlayer: this.players[0], started: true}, () => this.flipNewGameModalState());
+      this.setState({activePlayer: this.players[0], started: true, maxTurns: this.players.length * 13}, () => this.flipNewGameModalState());
     }
   }
 
   advanceActivePlayer(){
     const currentIndex = this.players.indexOf(this.state.activePlayer);
     const playerNumber = this.players.length;
-    this.setState({activePlayer: this.players[(currentIndex + 1) % playerNumber]}, () => {this.turnsTaken += 1});
+    this.setState({activePlayer: this.players[(currentIndex + 1) % playerNumber], turnsTaken: this.state.turnsTaken + 1}, () => this.checkWinner());
+  }
+
+  checkWinner(){
+    if (this.state.turnsTaken === this.state.maxTurns){
+      let scores = [];
+      this.players.forEach(player => {
+        scores.push(player.currentScores.gameTotal);
+      })
+      console.log(scores)
+      const winnerScore = Math.max(...scores);
+      console.log(winnerScore)
+      const winnerIndex = scores.indexOf(winnerScore);
+      console.log(winnerIndex)
+      const winner = this.players[winnerIndex];
+      
+      this.setState({ started: false }, () => { window.alert(`${winner.name} wins with a score of ${winnerScore}!`)});
+    }
   }
 
 
   render(){
+
+    console.log(this.state.maxTurns);
 
     return (
       <div>
