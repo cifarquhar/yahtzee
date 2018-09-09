@@ -104,7 +104,7 @@ class Scorecard extends Component {
     const overlayProps = {
       trigger: ["hover", "focus"],
       animation: false,
-      placement: "top"
+      placement: "left"
     }
 
     return(
