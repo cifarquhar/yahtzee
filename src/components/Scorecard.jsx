@@ -101,6 +101,12 @@ class Scorecard extends Component {
 
     const overlays = this.generateOverlays();
 
+    const overlayProps = {
+      trigger: ["hover", "focus"],
+      animation: false,
+      placement: "top"
+    }
+
     return(
       <div className="table-container">
         <table>
@@ -116,31 +122,31 @@ class Scorecard extends Component {
             <th>Upper Section</th>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.aces}><td>Aces</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.aces}><td>Aces</td></OverlayTrigger>
             <td className={tableRows.classes.aces} onClick={() => this.handleClick("aces")}>{tableRows.content.aces}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.twos}><td>Twos</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.twos}><td>Twos</td></OverlayTrigger>
             <td className={tableRows.classes.twos} onClick={() => this.handleClick("twos")}>{tableRows.content.twos}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.threes}><td>Threes</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.threes}><td>Threes</td></OverlayTrigger>
             <td className={tableRows.classes.threes} onClick={() => this.handleClick("threes")}>{tableRows.content.threes}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.fours}><td>Fours</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.fours}><td>Fours</td></OverlayTrigger>
             <td className={tableRows.classes.fours} onClick={() => this.handleClick("fours")}>{tableRows.content.fours}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.fives}><td>Fives</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.fives}><td>Fives</td></OverlayTrigger>
             <td className={tableRows.classes.fives} onClick={() => this.handleClick("fives")}>{tableRows.content.fives}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.sixes}><td>Sixes</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.sixes}><td>Sixes</td></OverlayTrigger>
             <td className={tableRows.classes.sixes} onClick={() => this.handleClick("sixes")}>{tableRows.content.sixes}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.bonus}><th>Bonus</th></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.bonus}><th>Bonus</th></OverlayTrigger>
             <td className={tableRows.classes.bonus}>{tableRows.content.bonus}</td>
           </tr>
           <tr>
@@ -153,31 +159,31 @@ class Scorecard extends Component {
             <th>Lower Section</th>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.threeKind}><td>Three-of-a-kind</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.threeKind}><td>Three-of-a-kind</td></OverlayTrigger>
             <td className={tableRows.classes.threeKind} onClick={() => this.handleClick("threeKind")}>{tableRows.content.threeKind}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.fourKind}><td>Four-of-a-kind</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.fourKind}><td>Four-of-a-kind</td></OverlayTrigger>
             <td className={tableRows.classes.fourKind} onClick={() => this.handleClick("fourKind")}>{tableRows.content.fourKind}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.house}><td>Full House</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.house}><td>Full House</td></OverlayTrigger>
             <td className={tableRows.classes.house} onClick={() => this.handleClick("house")}>{tableRows.content.house}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.low}><td>Low Straight</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.low}><td>Low Straight</td></OverlayTrigger>
             <td className={tableRows.classes.low} onClick={() => this.handleClick("low")}>{tableRows.content.low}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.high}><td>High Straight</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.high}><td>High Straight</td></OverlayTrigger>
             <td className={tableRows.classes.high} onClick={() => this.handleClick("high")}>{tableRows.content.high}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.yahtzee}><td>Yahtzee</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.yahtzee}><td>Yahtzee</td></OverlayTrigger>
             <td className={tableRows.classes.yahtzee} onClick={() => this.handleClick("yahtzee")}>{tableRows.content.yahtzee}</td>
           </tr>
           <tr>
-              <OverlayTrigger trigger={["hover", "focus"]} animation={false} placement="top" overlay={overlays.chance}><td>Chance</td></OverlayTrigger>
+              <OverlayTrigger {...overlayProps} overlay={overlays.chance}><td>Chance</td></OverlayTrigger>
             <td className={tableRows.classes.chance} onClick={() => this.handleClick("chance")}>{tableRows.content.chance}</td>
           </tr>
           <tr>
