@@ -279,7 +279,8 @@ class GameContainer extends Component {
           show={this.state.showNewGameModal}
           onHide={this.flipNewGameModalState.bind(this)}
           container={this}
-          animation={false}>
+          animation={false}
+          backdrop={false}>
           <Modal.Header>
             <Modal.Title>New Game</Modal.Title>
           </Modal.Header>
